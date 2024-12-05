@@ -22,7 +22,6 @@ pub fn part_one(input: &str) -> Option<u32> {
     let rows = vec_input.len();
     let cols = vec_input[0].len();
     let word_chars: Vec<char> = word.chars().collect();
-    let word_len = word.len();
 
     let mut count = 0;
 
@@ -30,7 +29,7 @@ pub fn part_one(input: &str) -> Option<u32> {
         for col in 0..cols {
             for &(dx, dy) in &directions {
                 let mut match_found = true;
-                for i in 0..word_len {
+                for (i, _) in word_chars.iter().enumerate() {
                     let new_row = row as isize + i as isize * dx;
                     let new_col = col as isize + i as isize * dy;
 
